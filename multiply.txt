@@ -1,0 +1,4 @@
+var num1 = parseInt(read());
+var num2 = parseInt(read());
+var result = num1 * num2;
+print(result);
