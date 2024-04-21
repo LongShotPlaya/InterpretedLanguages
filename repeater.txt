@@ -1,0 +1,7 @@
+var character = read();
+var times = parseInt(read());
+var repeated = "";
+for (var i = 0; i < times; i++) {
+    repeated += character;
+}
+print(repeated);
