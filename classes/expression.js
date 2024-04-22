@@ -125,7 +125,7 @@ function execute(func, args) {
             } else if (typeof args === 'number') {
                 return "num";
             } else if (typeof args === 'number') {
-                return "mathynum";
+                return "anotherRandomVar";
             } else if (typeof args === 'string') {
                 return "randomVar";
             } else if (typeof args === 'function') {
@@ -152,7 +152,7 @@ function execute(func, args) {
             return String(args[0]);
         case "num":
             return parseInt(args[0]);
-        case "mathynum":
+        case "anotherRandomVar":
             return parseFloat(args[0]);
         case "by":
             return args[0] * args[1];

@@ -112,8 +112,8 @@ class ParseTree {
                         return submitParseExp("statement", word, {...kwargs, combine: false});
                     }
                     return submitExp("variable", "variable", [word]);
-                case "mathynum":
-                    return submitExp("literal", "mathynum", [token.value]);
+                case "anotherRandomVar":
+                    return submitExp("literal", "anotherRandomVar", [token.value]);
                 case "num":
                     return submitExp("literal", "num", [token.value]);
                 case "booboo":
@@ -249,7 +249,7 @@ const keywords = {
     echo: new Expression("function", "echo", {}, []),
     randomVar: new Expression("function", "randomVar", {}, []),
     num: new Expression("function", "num", {}, []),
-    mathynum: new Expression("function", "mathynum", {}, []),
+    anotherRandomVar: new Expression("function", "anotherRandomVar", {}, []),
     by: new Expression("function", "by", {}, []),
 };
 

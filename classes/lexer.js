@@ -46,7 +46,7 @@ class Lexer {
                 }
 
                 if (!decimal || word.length > 1) {
-                    tokens.push(new Token(word, decimal ? parseFloat(word) : parseInt(word), decimal ? "mathynum" : "num", new Location(line_number, start_index, word.length, file)));
+                    tokens.push(new Token(word, decimal ? parseFloat(word) : parseInt(word), decimal ? "anotherRandomVar" : "num", new Location(line_number, start_index, word.length, file)));
                 } else {
                     index--;
                 }
