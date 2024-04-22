@@ -1,5 +1,3 @@
-// classes/parse_tree.js
-
 const Token = require('./token');
 const Expression = require('./expression');
 
