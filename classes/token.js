@@ -1,5 +1,3 @@
-// classes/token.js
-
 class Token {
     constructor(string, value, type, location) {
         this.string = string;

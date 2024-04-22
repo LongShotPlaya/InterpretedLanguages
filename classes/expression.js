@@ -1,5 +1,3 @@
-// classes/expression.js
-
 class Expression {
     constructor(type, operation, vars, args) {
         this.type = type;
@@ -25,7 +23,7 @@ class Expression {
             case "contents":
             case "indexer":
             case "variable":
-                return; // These cases are not handled in the original code
+                return; 
             case "expression":
                 switch (this.operation) {
                     case "+":
@@ -54,13 +52,11 @@ class Expression {
                         return total;
                 }
             case "invalid":
-                return; // This case is not handled in the original code
+                return; 
             case "empty":
-                // Just evaluates to null
                 return null;
             case "execution":
-                // Should just run code
-                return; // This case is not handled in the original code
+                return; 
             default:
                 throw new Error("Invalid expression type!");
         }

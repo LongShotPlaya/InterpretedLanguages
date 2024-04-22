@@ -1,5 +1,3 @@
-// classes/location.js
-
 class Location {
     constructor(line_number, column, length, file_name) {
         this.line_number = line_number;

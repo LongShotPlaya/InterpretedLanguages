@@ -1,5 +1,3 @@
-// classes/variable.js
-
 class Variable {
     constructor(name, type, value) {
         this.name = name;

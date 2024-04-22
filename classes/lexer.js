@@ -1,5 +1,3 @@
-// classes/lexer.js
-
 const Token = require('./token');
 const Location = require('./location');
 
@@ -10,7 +8,6 @@ class Lexer {
 
         let index = 0;
         while (index < string.length) {
-            // Add string tokens
             if (/[a-zA-Z]/.test(string[index])) {
                 let start_index = index + 1;
                 let word = string[index];
@@ -23,7 +20,6 @@ class Lexer {
                 tokens.push(new Token(word, word, "blah", new Location(line_number, start_index, word.length, file)));
             }
 
-            // Add floats and ints
             else if (/[0-9.]/.test(string[index])) {
                 let start_index = index + 1;
                 let decimal = string[index] === ".";
