@@ -1,15 +1,24 @@
-// parser.test.js
-
-const { Lexer } = require('./lexer'); // Import Lexer from lexer.js
-const Parser = require('./parser'); // Import Parser from parser.js
+const Parser = require('./parser');
 
 describe('Parser', () => {
-    test('Parse tokens', () => {
-        const inputCode = 'HelloWorld; cat; repeater; reverse; multiply;';
-        const lexer = new Lexer(inputCode);
-        const tokens = lexer.tokenize();
+    test('Parse input code', () => {
+        const tokens = [
+            { type: 'IDENTIFIER', value: 'cat' },
+            { type: 'LPAREN', value: '(' },
+            { type: 'STRING', value: '"Hello"' },
+            { type: 'RPAREN', value: ')' },
+            { type: 'SEMICOLON', value: ';' },
+            { type: 'IDENTIFIER', value: 'multiply' },
+            { type: 'LPAREN', value: '(' },
+            { type: 'NUMBER', value: '2' },
+            { type: 'COMMA', value: ',' },
+            { type: 'NUMBER', value: '4' },
+            { type: 'RPAREN', value: ')' },
+            { type: 'SEMICOLON', value: ';' },
+        ];
         const parser = new Parser(tokens);
-        parser.parse();
-        // Add assertions to verify parsing
+        expect(() => parser.parse()).not.toThrow();
     });
 });
+
+module.exports = Parser;

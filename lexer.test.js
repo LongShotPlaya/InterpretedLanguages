@@ -1,16 +1,25 @@
-// lexer.test.js
-
-const { Lexer, Token } = require('./lexer'); // Import both Lexer and Token from lexer.js
+const Lexer = require('./lexer');
 
 describe('Lexer', () => {
     test('Tokenize input code', () => {
-        const inputCode = 'HelloWorld; cat; repeater; reverse; multiply;';
+        const inputCode = 'cat(\'Hello\', World);';
         const lexer = new Lexer(inputCode);
         const tokens = lexer.tokenize();
-        expect(tokens.length).toBe(5);
-        expect(tokens[0].type).toBe('KEYWORD');
-        expect(tokens[0].value).toBe('HelloWorld');
-        // Add more assertions to verify tokenization
+        expect(tokens.length).toBe(7); // Adjusted for the new tokens
+        expect(tokens[0].value).toBe('cat');
+        expect(tokens[1].value).toBe('(');
+        expect(tokens[2].value).toBe('\'Hello\'');
+        expect(tokens[3].value).toBe(',');
+        expect(tokens[4].value).toBe('World');
+        expect(tokens[5].value).toBe(')');
+        expect(tokens[6].value).toBe(';');
+    });
+
+    test('Tokenize empty input code', () => {
+        const inputCode = '';
+        const lexer = new Lexer(inputCode);
+        const tokens = lexer.tokenize();
+        expect(tokens.length).toBe(0);
     });
 });
 

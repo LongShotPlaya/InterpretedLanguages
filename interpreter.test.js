@@ -1,17 +1,15 @@
-// interpreter.test.js
-
-const { Lexer } = require('./lexer'); // Import Lexer from lexer.js
 const Interpreter = require('./interpreter');
 
 describe('Interpreter', () => {
-    test('Interpret HelloWorld', () => {
+    test('Interpret input code', () => {
         const interpreter = new Interpreter();
-        const ast = { type: 'FunctionCall', name: 'HelloWorld' };
+        const ast = [
+            { type: 'FUNCTION_CALL', name: 'cat', arguments: ['"Hello"'] },
+            { type: 'FUNCTION_CALL', name: 'multiply', arguments: ['2', '4'] },
+        ];
         const result = interpreter.interpret(ast);
-        expect(result).toBe('Hello, World!');
+        expect(result).toEqual(['Hello', 8]);
     });
-
-    // Add more tests for other functions
 });
 
-module.exports = { Interpreter };
+module.exports = Interpreter;

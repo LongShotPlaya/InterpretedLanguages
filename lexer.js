@@ -1,73 +1,59 @@
-// lexer.js
-
-class Token {
-    constructor(type, value) {
-        this.type = type;
-        this.value = value;
-    }
-}
-
 class Lexer {
-    constructor(input) {
-        this.input = input;
-        this.position = 0;
-        this.currentChar = this.input[0];
-        this.keywords = ['HelloWorld', 'cat', 'repeater', 'reverse', 'multiply'];
-    }
-
-    advance() {
-        this.position++;
-        if (this.position < this.input.length) {
-            this.currentChar = this.input[this.position];
-        } else {
-            this.currentChar = null;
-        }
-    }
-
-    skipWhitespace() {
-        while (this.currentChar !== null && /\s/.test(this.currentChar)) {
-            this.advance();
-        }
-    }
-
-    isAlphaNumeric(char) {
-        return /[a-zA-Z0-9_]/.test(char);
+    constructor(inputCode) {
+        this.inputCode = inputCode.trim(); // Remove leading and trailing whitespace
+        this.currentPosition = 0;
+        this.tokens = [];
     }
 
     tokenize() {
-        const tokens = [];
+        while (this.currentPosition < this.inputCode.length) {
+            const currentChar = this.inputCode[this.currentPosition];
 
-        while (this.currentChar !== null) {
-            if (/\s/.test(this.currentChar)) {
-                this.skipWhitespace();
-                continue;
-            }
-
-            if (this.isAlphaNumeric(this.currentChar)) {
+            if (currentChar === '(' || currentChar === ')' || currentChar === ';' || currentChar === '"' || currentChar === ',') {
+                this.tokens.push({ type: 'PUNCTUATION', value: currentChar });
+                this.currentPosition++;
+            } else if (currentChar === '*') {
+                this.tokens.push({ type: 'OPERATOR', value: '*' });
+                this.currentPosition++;
+            } else if (currentChar.match(/[a-zA-Z]/)) {
                 let identifier = '';
-                while (this.currentChar !== null && this.isAlphaNumeric(this.currentChar)) {
-                    identifier += this.currentChar;
-                    this.advance();
+                while (this.currentPosition < this.inputCode.length && this.inputCode[this.currentPosition].match(/[a-zA-Z]/)) {
+                    identifier += this.inputCode[this.currentPosition];
+                    this.currentPosition++;
                 }
-                if (this.keywords.includes(identifier)) {
-                    tokens.push(new Token('KEYWORD', identifier));
-                } else {
-                    tokens.push(new Token('IDENTIFIER', identifier));
+                this.tokens.push({ type: 'IDENTIFIER', value: identifier });
+            } else if (currentChar.match(/[0-9]/)) { // Handle numeric literals
+                let number = '';
+                while (this.currentPosition < this.inputCode.length && this.inputCode[this.currentPosition].match(/[0-9]/)) {
+                    number += this.inputCode[this.currentPosition];
+                    this.currentPosition++;
                 }
-                continue;
+                this.tokens.push({ type: 'NUMBER', value: parseInt(number) });
+            } else if (currentChar === '\'' || currentChar === '"') { // Handle string literals
+                let stringLiteral = '';
+                const quoteType = currentChar;
+                this.currentPosition++; // Move past the opening quote
+                while (this.currentPosition < this.inputCode.length && this.inputCode[this.currentPosition] !== quoteType) {
+                    stringLiteral += this.inputCode[this.currentPosition];
+                    this.currentPosition++;
+                }
+                if (this.inputCode[this.currentPosition] !== quoteType) {
+                    throw new Error('Unterminated string literal');
+                }
+                this.currentPosition++; // Move past the closing quote
+                this.tokens.push({ type: 'STRING', value: quoteType + stringLiteral + quoteType });
+            } else if (currentChar === ' ') {
+                // Skip spaces
+                while (this.currentPosition < this.inputCode.length && this.inputCode[this.currentPosition] === ' ') {
+                    this.currentPosition++;
+                }
+            } else {
+                console.log('Unexpected character:', currentChar); // Add logging
+                throw new Error(`Unexpected character: ${currentChar}`);
             }
-
-            if (this.currentChar === ';') {
-                tokens.push(new Token('SEMICOLON', ';'));
-                this.advance();
-                continue;
-            }
-
-            throw new Error(`Invalid character: ${this.currentChar}`);
         }
-
-        return tokens;
-    }
+        return this.tokens;
+    }    
 }
 
-module.exports = { Lexer, Token };
+module.exports = Lexer;
