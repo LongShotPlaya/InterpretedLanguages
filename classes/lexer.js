@@ -122,7 +122,6 @@ class Lexer {
                 }
             }
         }
-
         return [tokens, errors];
     }
 }
