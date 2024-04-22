@@ -28,12 +28,17 @@ class Parser {
             if (this.currentToken.type === 'LPAREN') {
                 this.eat('LPAREN');
                 const result = this.parse();
-                this.eat('RPAREN');
-                return result;
+                if (this.currentToken.type === 'RPAREN') { // Check for RPAREN after parsing arguments
+                    this.eat('RPAREN');
+                    return result;
+                } else {
+                    throw new Error(`Expected RPAREN, got ${this.currentToken.type}`);
+                }
             } else {
                 return [token.value];
             }
-        } else if (token.type === 'OPERATOR') {
+        }
+         else if (token.type === 'OPERATOR') {
             this.eat('OPERATOR');
             return [token.value];
         } else if (token.type === 'STRING') { // Handle string tokens
