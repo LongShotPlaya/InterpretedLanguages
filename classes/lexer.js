@@ -17,7 +17,7 @@ class Lexer {
                     index++;
                 }
 
-                tokens.push(new Token(word, word, "blah", new Location(line_number, start_index, word.length, file)));
+                tokens.push(new Token(word, word, "randomVar", new Location(line_number, start_index, word.length, file)));
             }
 
             else if (/[0-9.]/.test(string[index])) {

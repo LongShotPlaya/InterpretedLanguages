@@ -1,5 +1,3 @@
-// classes/keywords.js
-
 function Funky(...args) {
     console.log(...args);
 }
@@ -9,7 +7,7 @@ function kind(lit) {
 }
 
 function tellme(prompt = "") {
-    return prompt; // SiFunkyating input
+    return prompt;
 }
 
 function counter(str) {

@@ -80,7 +80,7 @@ class ParseTree {
             const token = this.currToken();
 
             switch (token.type) {
-                case "blah":
+                case "randomVar":
                     const word = token.string;
                     if (keywords[word] !== undefined) {
                         const keyword = keywords[word];
@@ -104,7 +104,7 @@ class ParseTree {
                                 case "literal":
                                     return this.lookAhead(exp);
                                 case "binary":
-                                    this.errors.push(`Thy left hand hath been lopped off at ${token.location}!`);
+                                    this.errors.push(`${token.location}!`);
                             }
                         }
                     }
@@ -126,11 +126,11 @@ class ParseTree {
                         this.nextToken();
                     }
                     if (this.currToken() === null) {
-                        this.errors.push(`Thou canst not defeat thine opponent lest thou finish thine battle Funky at ${token.location}!`);
+                        this.errors.push(`${token.location}!`);
                     }
-                    return submitExp("literal", "blah", [value]);
+                    return submitExp("literal", "randomVar", [value]);
                 case "comma":
-                    this.errors.push(`Thou countest thine commas before they hatch at ${token.location}!`);
+                    this.errors.push(`${token.location}!`);
                     return submitInvalid();
                 case "whitespace":
                     this.nextToken();
@@ -144,7 +144,7 @@ class ParseTree {
                     if (closeContainer !== null) {
                         return closeContainer;
                     }
-                    this.errors.push(`Canst thou not read? What thinkest thou of "${this.currToken().string}" at ${this.currToken().location}?`);
+                    this.errors.push(`"${this.currToken().string}" at ${this.currToken().location}?`);
                     return submitInvalid();
             }
         }
@@ -178,7 +178,7 @@ class ParseTree {
             return exp;
         }
 
-        this.errors.push(`Thou hast a hole in thy container at ${token.location}!`);
+        this.errors.push(`${token.location}!`);
         return submitInvalid();
     }
 
@@ -195,7 +195,7 @@ class ParseTree {
             return submitEmpty();
         }
 
-        this.errors.push(`Thou mayest not finish what thou hast not started! Thou didst not open the container at ${token.location}!`);
+        this.errors.push(`${token.location}!`);
         return submitInvalid();
     }
 
@@ -247,7 +247,7 @@ const keywords = {
     tellme: new Expression("function", "tellme", {}, []),
     counter: new Expression("function", "counter", {}, []),
     echo: new Expression("function", "echo", {}, []),
-    blah: new Expression("function", "blah", {}, []),
+    randomVar: new Expression("function", "randomVar", {}, []),
     num: new Expression("function", "num", {}, []),
     mathynum: new Expression("function", "mathynum", {}, []),
     by: new Expression("function", "by", {}, []),

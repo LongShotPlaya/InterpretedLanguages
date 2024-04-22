@@ -127,7 +127,7 @@ function execute(func, args) {
             } else if (typeof args === 'number') {
                 return "mathynum";
             } else if (typeof args === 'string') {
-                return "blah";
+                return "randomVar";
             } else if (typeof args === 'function') {
                 return "weapon";
             } else {
@@ -148,7 +148,7 @@ function execute(func, args) {
             return result;
         case "echo":
             return args[0] * args[1];
-        case "blah":
+        case "randomVar":
             return String(args[0]);
         case "num":
             return parseInt(args[0]);
@@ -161,7 +161,6 @@ function execute(func, args) {
 
 function execute(func, args) {
     switch (func) {
-        // Previous cases here...
         default:
             throw new Error("Invalid function!");
     }
