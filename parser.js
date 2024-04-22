@@ -50,7 +50,13 @@ class Parser {
         } else if (token.type === 'STRING') {
             console.log('Parsing string');
             this.eat('STRING');
-            return [token.value];
+            if (this.currentToken.type === 'RPAREN') {
+                console.log('RPAREN found after string');
+                this.eat('RPAREN'); // Consume RPAREN token
+                return [token.value];
+            } else {
+                throw new Error(`Expected RPAREN, got ${this.currentToken.type}`);
+            }
         } else if (token.type === 'LPAREN') {
             console.log('LPAREN found, parsing subexpression');
             this.eat('LPAREN');
@@ -70,7 +76,7 @@ class Parser {
             throw new Error(`Invalid statement: ${token.type}`);
         }
     }
-
+    
     parse() {
         console.log('Parsing tokens...');
         const statements = [];
