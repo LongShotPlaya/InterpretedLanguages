@@ -17,7 +17,7 @@ describe('Parser', () => {
             { type: 'SEMICOLON', value: ';' },
         ];
         const parser = new Parser(tokens);
-        expect(() => parser.parse()).not.toThrow();
+        parser.parse();
     });
 });
 

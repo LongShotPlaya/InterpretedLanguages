@@ -32,7 +32,7 @@ class Parser {
                 console.log('LPAREN found');
                 this.eat('LPAREN');
                 const result = this.parse();
-                if (this.currentToken.type === 'RPAREN') { // Check for RPAREN after parsing arguments
+                if (this.currentToken.type === 'RPAREN') {
                     console.log('RPAREN found after arguments');
                     this.eat('RPAREN');
                     return result;
@@ -47,17 +47,21 @@ class Parser {
             console.log('Parsing operator');
             this.eat('OPERATOR');
             return [token.value];
+        } else if (token.type === 'COMMA') {
+            console.log('Parsing comma');
+            this.eat('COMMA');
+            return [];
         } else if (token.type === 'STRING') {
             console.log('Parsing string');
             this.eat('STRING');
             if (this.currentToken.type === 'RPAREN' || this.currentToken.type === 'COMMA') {
                 console.log('RPAREN or COMMA found after string');
-                this.eat(this.currentToken.type); // Consume RPAREN or COMMA token
+                this.eat(this.currentToken.type);
                 return [token.value];
             } else {
                 throw new Error(`Expected RPAREN or COMMA, got ${this.currentToken.type}`);
             }
-        } else if (token.type === 'NUMBER') { // Handle NUMBER tokens
+        } else if (token.type === 'NUMBER') {
             console.log('Parsing number');
             this.eat('NUMBER');
             return [token.value];
@@ -65,7 +69,7 @@ class Parser {
             console.log('LPAREN found, parsing subexpression');
             this.eat('LPAREN');
             const result = this.parse();
-            if (this.currentToken.type === 'RPAREN') { // Check for RPAREN after parsing subexpression
+            if (this.currentToken.type === 'RPAREN') {
                 console.log('RPAREN found after subexpression');
                 this.eat('RPAREN');
                 return result;
@@ -80,7 +84,6 @@ class Parser {
             throw new Error(`Invalid statement: ${token.type}`);
         }
     }
-    
     
     parse() {
         console.log('Parsing tokens...');
