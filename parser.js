@@ -21,7 +21,8 @@ class Parser {
     parseStatement() {
         const token = this.currentToken;
     
-        console.log('Current token type:', token.type); // Add logging
+        // Log the current token type
+        console.log('Current token type:', token.type);
     
         if (token.type === 'IDENTIFIER') {
             this.eat('IDENTIFIER');
@@ -37,18 +38,21 @@ class Parser {
             } else {
                 return [token.value];
             }
-        }
-         else if (token.type === 'OPERATOR') {
+        } else if (token.type === 'OPERATOR') {
             this.eat('OPERATOR');
             return [token.value];
-        } else if (token.type === 'STRING') { // Handle string tokens
+        } else if (token.type === 'STRING') {
             this.eat('STRING');
             return [token.value];
         } else if (token.type === 'LPAREN') {
             this.eat('LPAREN');
             const result = this.parse();
-            this.eat('RPAREN');
-            return result;
+            if (this.currentToken.type === 'RPAREN') { // Check for RPAREN after parsing subexpression
+                this.eat('RPAREN');
+                return result;
+            } else {
+                throw new Error(`Expected RPAREN, got ${this.currentToken.type}`);
+            }
         } else if (token.type === 'SEMICOLON') {
             this.eat('SEMICOLON');
             return [];
@@ -57,7 +61,6 @@ class Parser {
         }
     }
     
-      
 
     parse() {
         const statements = [];
