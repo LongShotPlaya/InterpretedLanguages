@@ -1,3 +1,0 @@
-parser grammar AutobotsParser;
-
-autobot : CHILLY | BUMBLEBEE | MEGATRON | STARSCREAM | SOUNDWAVE;
