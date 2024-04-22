@@ -114,7 +114,7 @@ function purgeNones(packedList) {
 
 function execute(func, args) {
     switch (func) {
-        case "cry":
+        case "Funky":
             if (Array.isArray(args) && args.length > 0) {
                 console.log(...args.map(arg => String(arg)));
             } else if (Array.isArray(args)) {

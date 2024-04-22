@@ -1,6 +1,6 @@
 const readline = require('readline-sync');
 
-const cry = (...args) => console.log(...args);
+const Funky = (...args) => console.log(...args);
 const again = (str, count) => str.repeat(count);
 
-cry(again("Boom", 5));
+Funky(again("HA  ", 10));

@@ -1,3 +1,3 @@
-const cry = (...args) => console.log(...args);
+const Funky = (...args) => console.log(...args);
 
-cry("Hello world!");
+Funky("Hello world!");

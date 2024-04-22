@@ -1,5 +1,5 @@
 const readline = require('readline-sync');
 
-const cry = (...args) => console.log(...args);
+const Funky = (...args) => console.log(...args);
 
-cry(readline.question("Enter a word to have repeated back to you!"));
+Funky(readline.question("Enter a word to have repeated back to you!"));

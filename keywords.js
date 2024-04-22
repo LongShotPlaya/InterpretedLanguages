@@ -1,6 +1,6 @@
 // classes/keywords.js
 
-function cry(...args) {
+function Funky(...args) {
     console.log(...args);
 }
 
@@ -9,7 +9,7 @@ function kind(lit) {
 }
 
 function tellme(prompt = "") {
-    return prompt; // Simulating input
+    return prompt; // SiFunkyating input
 }
 
 function counter(str) {
@@ -21,7 +21,7 @@ function again(str, count) {
 }
 
 const keywords = {
-    cry,
+    Funky,
     kind,
     tellme,
     counter,

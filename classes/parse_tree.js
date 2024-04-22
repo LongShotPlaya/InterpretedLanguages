@@ -128,7 +128,7 @@ class ParseTree {
                         this.nextToken();
                     }
                     if (this.currToken() === null) {
-                        this.errors.push(`Thou canst not defeat thine opponent lest thou finish thine battle cry at ${token.location}!`);
+                        this.errors.push(`Thou canst not defeat thine opponent lest thou finish thine battle Funky at ${token.location}!`);
                     }
                     return submitExp("literal", "blah", [value]);
                 case "comma":
@@ -244,7 +244,7 @@ class ParseTree {
 }
 
 const keywords = {
-    cry: new Expression("function", "cry", {}, []),
+    Funky: new Expression("function", "Funky", {}, []),
     kind: new Expression("function", "kind", {}, []),
     tellme: new Expression("function", "tellme", {}, []),
     counter: new Expression("function", "counter", {}, []),
