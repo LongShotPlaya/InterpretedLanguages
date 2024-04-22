@@ -1,15 +1,17 @@
 class Interpreter {
     interpret(statement) {
         if (Array.isArray(statement)) {
-            const functionName = statement.shift().name;
-            const args = statement[0].arguments; // Extract arguments
-            if (functionName === 'cat') {
-                return this.catFunction(args);
-            } else if (functionName === 'multiply') {
-                return this.multiplyFunction(args);
-            } else {
-                throw new Error(`Unknown function: ${functionName}`);
+            const result = [];
+            for (const item of statement) {
+                if (item.name === 'cat') {
+                    result.push(this.catFunction(item.arguments));
+                } else if (item.name === 'multiply') {
+                    result.push(this.multiplyFunction(item.arguments));
+                } else {
+                    throw new Error(`Unknown function: ${item.name}`);
+                }
             }
+            return result;
         } else {
             return statement;
         }
@@ -19,7 +21,11 @@ class Interpreter {
         if (params.length !== 1) {
             throw new Error('cat function expects exactly one parameter');
         }
-        return params[0];
+        // Remove extra quotes if present
+        const value = params[0].startsWith('"') && params[0].endsWith('"')
+            ? params[0].slice(1, -1)
+            : params[0];
+        return value;
     }
 
     multiplyFunction(params) {
