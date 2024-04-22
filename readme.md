@@ -8,7 +8,7 @@ Funky(arg1 [, arg2]*) -- works very similarly to "print" in Python
 kind(lit) -- gets the type of a literal
 tellme([prompt]) -- just "input()" from Python, but with an optional prompt to give the user before collecting input
 counter(str) -- takes an input string and returns it reversed
-again(str, count) -- takes an input string and returns it repeated "count" times
+echo(str, count) -- takes an input string and returns it repeated "count" times
 blah(lit) -- casts a literal to the "blah" data type
 num(lit) -- casts a literal to the "num" data type
 mathynum(lit) -- casts a literal to the "mathynum" data type

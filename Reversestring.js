@@ -1,6 +1,9 @@
 const readline = require('readline-sync');
 
-const Funky = (...args) => console.log(...args);
-const counter = str => str.split("").reverse().join("");
+const reverseString = str => str.split("").reverse().join("");
 
-Funky(counter(readline.question()));
+const displayReversedString = str => console.log("String Reversal:", reverseString(str));
+
+const inputString = readline.question("Enter a string to reverse: ");
+
+displayReversedString(inputString);

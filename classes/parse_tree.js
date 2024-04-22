@@ -248,7 +248,7 @@ const keywords = {
     kind: new Expression("function", "kind", {}, []),
     tellme: new Expression("function", "tellme", {}, []),
     counter: new Expression("function", "counter", {}, []),
-    again: new Expression("function", "again", {}, []),
+    echo: new Expression("function", "echo", {}, []),
     blah: new Expression("function", "blah", {}, []),
     num: new Expression("function", "num", {}, []),
     mathynum: new Expression("function", "mathynum", {}, []),

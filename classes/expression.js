@@ -150,7 +150,7 @@ function execute(func, args) {
                 result += char;
             }
             return result;
-        case "again":
+        case "echo":
             return args[0] * args[1];
         case "blah":
             return String(args[0]);

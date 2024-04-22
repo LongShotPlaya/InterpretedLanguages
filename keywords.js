@@ -16,7 +16,7 @@ function counter(str) {
     return str.split("").reverse().join("");
 }
 
-function again(str, count) {
+function echo(str, count) {
     return str.repeat(count);
 }
 
@@ -25,7 +25,7 @@ const keywords = {
     kind,
     tellme,
     counter,
-    again,
+    echo,
 };
 
 module.exports = keywords;
