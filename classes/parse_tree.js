@@ -243,7 +243,7 @@ class ParseTree {
 
 const keywords = {
     Funky: new Expression("function", "Funky", {}, []),
-    kind: new Expression("function", "kind", {}, []),
+    fresh: new Expression("function", "fresh", {}, []),
     tellme: new Expression("function", "tellme", {}, []),
     counter: new Expression("function", "counter", {}, []),
     echo: new Expression("function", "echo", {}, []),

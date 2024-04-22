@@ -2,7 +2,7 @@ function Funky(...args) {
     console.log(...args);
 }
 
-function kind(lit) {
+function fresh(lit) {
     return typeof lit;
 }
 
@@ -20,7 +20,7 @@ function echo(str, count) {
 
 const keywords = {
     Funky,
-    kind,
+    fresh,
     tellme,
     counter,
     echo,

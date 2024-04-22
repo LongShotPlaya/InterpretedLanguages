@@ -119,7 +119,7 @@ function execute(func, args) {
                 console.log(args);
             }
             break;
-        case "kind":
+        case "fresh":
             if (typeof args === 'boolean') {
                 return "booboo";
             } else if (typeof args === 'number') {
