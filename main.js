@@ -7,7 +7,7 @@ try {
     const fileName = process.argv[2];
     console.log(`Reading file: ${fileName}`);
     const file = fs.readFileSync(fileName, 'utf8');
-    console.log(`File content:\n${file}`);
+    // console.log(`File content:\n${file}`);
     lines = file.split("\n");
     console.log(`Total lines: ${lines.length}`);
 } catch (e) {
