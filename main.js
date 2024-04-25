@@ -1,13 +1,10 @@
 const fs = require('fs');
 
 let lines = [];
-// const filePath = "helloworld.utli"; //
 try {
-    // const fileName = filePath;
     const fileName = process.argv[2];
     console.log(`Reading file: ${fileName}`);
     const file = fs.readFileSync(fileName, 'utf8');
-    // console.log(`File content:\n${file}`);
     lines = file.split("\n");
     console.log(`Total lines: ${lines.length}`);
 } catch (e) {
@@ -57,9 +54,9 @@ while (pc >= 0 && pc < lines.length) {
             err("Error: Expected instruction argument for CHECK FEET");
         }
         try {
-            const line = parseInt(parts[2]) - 1; // - 1 because list indexes start at 0
+            const line = parseInt(parts[2]) - 1;
             if (a === 0) {
-                pc = line - 1; // - 1 again because we're incrementing pc each instruction
+                pc = line - 1;
             }
         } catch {
             err("Error: Invalid instruction argument for FLY");
