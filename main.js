@@ -1,4 +1,3 @@
-//#region Lexer
 // Setup the lexer and initialize required variables
 const fs = require('fs');
 const readline = require('readline');
@@ -10,7 +9,6 @@ const rl = readline.createInterface({
 
 let dreams = [];
 let memories = 0;
-//#endregion
 
 //#region heartache
 // Handle errors and exit gracefully
