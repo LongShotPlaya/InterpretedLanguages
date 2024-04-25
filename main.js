@@ -54,7 +54,6 @@ const fiftyfive = async () => {
 };
 //#endregion
 
-
 //#region singAlong
 // Convert character codes on the stack into a string and print it
 const singAlong = () => {
@@ -85,6 +84,10 @@ const res = () => {
     const dreamString = reversedDreams.map((charCode) => String.fromCharCode(charCode)).join("");
     const words = dreamString.split(/\s+/).reverse().join(" ");
     console.log(words);
+}
+
+const repeat = () => {
+    
 }
 
 //#region Parser
@@ -126,6 +129,21 @@ const runaway = async () => {
     }
 };
 //#endregion
+
+//#region repeat
+// Get the top number from the stack, save it as num, then get the rest of the stack, save it as string, and display string num times
+const repeater = () => {
+    const num = wanted();
+    const string = dreams.slice();
+    
+    const dreamString = string.map((charCode) => String.fromCharCode(charCode)).join("");
+    
+    for (let i = 0; i < num; i++) {
+        console.log(dreamString);
+    }
+};
+//#endregion
+
 
 //#region ASK
 // Prompt the user for input and validate it before adding to the stack
@@ -188,6 +206,9 @@ const liveWire = async () => {
                     break;
                 case "LIVIN_ON_A_PRAYER":
                     await rockTheWorld();
+                    break;
+                case "ALL_THE_SINGLE_LADIES":
+                    repeater();
                     break;
                 case "TAKE_ME_BACK":
                     takeMeBack(parts.slice(1).join(' '));

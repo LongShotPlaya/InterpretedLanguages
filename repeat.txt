@@ -1,5 +1,6 @@
 SING Enter phrase to repeat: 
-
+LIVIN_ON_A_PRAYER
 SING How many times to repeat?
-
+YOU_GIVE_LOVE_A_BAD_NAME
+ALL_THE_SINGLE_LADIES
 BORN_TO_BE_MY_BABY
