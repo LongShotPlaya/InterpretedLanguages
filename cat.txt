@@ -1,3 +1,4 @@
 SING Enter string:
-
+LIVIN_ON_A_PRAYER
+FUEL
 BORN_TO_BE_MY_BABY

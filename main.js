@@ -144,6 +144,12 @@ const repeater = () => {
 };
 //#endregion
 
+const cat = () => {
+    const string = dreams.slice();
+    const dreamString = string.map((charCode) => String.fromCharCode(charCode)).join("");
+    console.log(dreamString);
+}
+
 
 //#region ASK
 // Prompt the user for input and validate it before adding to the stack
@@ -212,6 +218,9 @@ const liveWire = async () => {
                     break;
                 case "TAKE_ME_BACK":
                     takeMeBack(parts.slice(1).join(' '));
+                    break;
+                case "FUEL":
+                    cat();
                     break;
                 case "LOUDER":
                     fiftyfive();
