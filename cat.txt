@@ -1,0 +1,3 @@
+BORN_TO_BE_MY_BABY   #get user's input
+WHEN_WE_WERE_BEAUTIFUL  #print stack
+BORN_TO_BE_MY_BABY
