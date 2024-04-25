@@ -10,7 +10,7 @@ const rl = readline.createInterface({
 let dreams = [];
 let memories = 0;
 
-//#region heartache
+//#region Error Handling
 // Handle errors and exit gracefully
 const heartache = (str) => {
     console.log(`\n${str} at line ${memories}`);
@@ -18,7 +18,7 @@ const heartache = (str) => {
 };
 //#endregion
 
-//#region wanted
+//#region gets number input
 // Retrieve the top value from the stack
 const wanted = (index = -1) => {
     if (dreams.length < 1) {
@@ -74,7 +74,6 @@ const rockTheWorld = () => {
                 const charCode = char.charCodeAt(0);
                 dreams.push(charCode);
             }
-            // singAlong();
             resolve();
         });
     });
@@ -105,7 +104,7 @@ const badMedicine = async () => {
 };
 //#endregion
 
-//#region handling déjà vu
+//#region RUNAWAY
 // Implement the RUNAWAY command to repeat characters on the stack
 const runaway = async () => {
     if (dreams.length < 2) { 
@@ -194,7 +193,7 @@ const liveWire = async () => {
                     takeMeBack(parts.slice(1).join(' '));
                     break;
                 case "LOUDER":
-                    fiftyfive();     
+                    fiftyfive();
                     break;     
                 case "RUNAWAY":
                     runaway();
@@ -252,33 +251,34 @@ const liveWire = async () => {
                     runaway();
                     break;
                 case "YOU_GIVE_LOVE_A_BAD_NAME":
-                    console.log("Enter the first number: ");
+                    // console.log("Enter the first number: ");
                     await new Promise((resolve, reject) => {
                         rl.question('', async (input1) => {
                             const num1 = parseInt(input1);
                             if (!isNaN(num1)) {
-                                console.log("Enter the second number: ");
-                                rl.question('', async (input2) => {
-                                    const num2 = parseInt(input2);
-                                    if (!isNaN(num2)) {
-                                        dreams.push(num1);
-                                        dreams.push(num2);
-                                        resolve();
-                                    } else {
-                                        console.log("Heartbreak: Invalid input.");
-                                        rl.close();
-                                        process.exit(0);
-                                    }
-                                });
+                                dreams.push(num1);
+                                resolve();
                             } else {
-                                console.log("Heartbreak: Invalid input.");
                                 rl.close();
                                 process.exit(0);
                             }
                         });
                     });
                     break;
-
+                case "THIS_HOUSE_IS_NOT_FOR_SALE":
+                    await new Promise((resolve, reject) => {
+                        rl.question('', async (input2) => {
+                            const num2 = parseInt(input2);
+                            if (!isNaN(num2)) {
+                                dreams.push(num2);
+                                resolve();
+                            } else {
+                                rl.close();
+                                process.exit(0);
+                            }
+                        });
+                    });
+                    break;
                 case "DEAD_ON_YOUR_FEET":
                     if (dreams.length > 1) {
                         const a = wanted();

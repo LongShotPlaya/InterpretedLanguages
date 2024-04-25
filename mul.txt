@@ -1,10 +1,7 @@
-Sing Enter the first number
-INPUT_INT
-Sing Enter the 2nd number
-INPUT_INT
-
-# YOU_GIVE_LOVE_A_BAD_NAME  # Prompt for the first number
-
-DEAD_ON_YOUR_FEET  # Multiply the top two numbers on the stack
-IN_THESE_ARMS  # Print the result
+SING Enter first number: 
+YOU_GIVE_LOVE_A_BAD_NAME 
+SING Enter second number:
+THIS_HOUSE_IS_NOT_FOR_SALE
+DEAD_ON_YOUR_FEET  
+IN_THESE_ARMS 
 BORN_TO_BE_MY_BABY
