@@ -1,4 +1,5 @@
 //#region Lexer
+// Setup the lexer and initialize required variables
 const fs = require('fs');
 const readline = require('readline');
 
@@ -12,6 +13,7 @@ let memories = 0;
 //#endregion
 
 //#region heartache
+// Handle errors and exit gracefully
 const heartache = (str) => {
     console.log(`\n${str} at line ${memories}`);
     process.exit(0);
@@ -19,6 +21,7 @@ const heartache = (str) => {
 //#endregion
 
 //#region wanted
+// Retrieve the top value from the stack
 const wanted = (index = -1) => {
     if (dreams.length < 1) {
         heartache("Heartbreak: Stack underflow");
@@ -29,6 +32,7 @@ const wanted = (index = -1) => {
 //#endregion
 
 //#region takeMeBack
+// Push characters from a message onto the stack in reverse order
 const takeMeBack = (message) => {
     const brokenMessage = message.split('').reverse();
     for (const char of brokenMessage) {
@@ -41,6 +45,7 @@ const takeMeBack = (message) => {
 //#endregion
 
 //#region singAlong
+// Convert character codes on the stack into a string and print it
 const singAlong = () => {
     const reversedDreams = dreams.slice().reverse(); 
     const dreamString = reversedDreams.map((charCode) => String.fromCharCode(charCode)).join("");
@@ -50,6 +55,7 @@ const singAlong = () => {
 //#endregion
 
 //#region rockTheWorld
+// Prompt the user for input, push character codes onto the stack, and then sing along
 const rockTheWorld = () => {
     return new Promise((resolve, reject) => {
         rl.question('Livin\' on a prayer: ', (input) => {
@@ -65,6 +71,7 @@ const rockTheWorld = () => {
 //#endregion
 
 //#region Parser
+// Define functions for parsing input from the user and modifying the stack accordingly
 const badMedicine = async () => {
     return new Promise((resolve, reject) => {
         rl.question('Take me back to your heart: ', (input) => {
@@ -81,6 +88,7 @@ const badMedicine = async () => {
 //#endregion
 
 //#region handling déjà vu
+// Implement the RUNAWAY command to repeat characters on the stack
 const runaway = async () => {
     if (dreams.length < 2) { 
         heartache("Heartbreak: Insufficient elements in stack for RUNAWAY command");
@@ -103,6 +111,7 @@ const runaway = async () => {
 //#endregion
 
 //#region ASK
+// Prompt the user for input and validate it before adding to the stack
 const livingOnTheEdge = async () => {
     return new Promise((resolve, reject) => {
         rl.question('Blaze of glory, give me a sign: ', (input) => {
@@ -130,6 +139,7 @@ const livingOnTheEdge = async () => {
 //#endregion
 
 //#region Interpreter
+// Main interpreter function that reads instructions from a file and executes corresponding actions
 const liveWire = async () => {
     const fileName = process.argv[2];
     try {

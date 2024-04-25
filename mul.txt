@@ -1,4 +1,5 @@
-ASK
-DEAD_ON_YOUR_FEET
-IN_THESE_ARMS
+YOU_GIVE_LOVE_A_BAD_NAME  # Prompt for the first number
+TAKE_ME_HOME  # Prompt for the second number
+DEAD_ON_YOUR_FEET  # Multiply the top two numbers on the stack
+IN_THESE_ARMS  # Print the result
 BORN_TO_BE_MY_BABY
