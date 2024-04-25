@@ -1,1 +1,5 @@
+SING Enter phrase to repeat: 
 
+SING How many times to repeat?
+
+BORN_TO_BE_MY_BABY

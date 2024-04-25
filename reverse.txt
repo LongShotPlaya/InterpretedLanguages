@@ -1,5 +1,4 @@
+SING Enter phrase to reverse: 
 LIVIN_ON_A_PRAYER
-#take the string at the top of stack and reverses it and puts it back onto the stack
-#print the top of the stack
-BACK_IT_UP
+RESULT
 BORN_TO_BE_MY_BABY

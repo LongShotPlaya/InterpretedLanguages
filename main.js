@@ -69,17 +69,24 @@ const singAlong = () => {
 // Prompt the user for input, push character codes onto the stack, and then sing along
 const rockTheWorld = () => {
     return new Promise((resolve, reject) => {
-        rl.question('Livin\' on a prayer: ', (input) => {
+        rl.question('', (input) => {
             for (const char of input) {
                 const charCode = char.charCodeAt(0);
                 dreams.push(charCode);
             }
-            singAlong();
+            // singAlong();
             resolve();
         });
     });
 };
 //#endregion
+
+const res = () => {
+    const reversedDreams = dreams.slice().reverse(); 
+    const dreamString = reversedDreams.map((charCode) => String.fromCharCode(charCode)).join("");
+    const words = dreamString.split(/\s+/).reverse().join(" ");
+    console.log(words);
+}
 
 //#region Parser
 // Define functions for parsing input from the user and modifying the stack accordingly
@@ -185,12 +192,15 @@ const liveWire = async () => {
                     break;
                 case "TAKE_ME_BACK":
                     takeMeBack(parts.slice(1).join(' '));
-                    break;      
+                    break;
                 case "LOUDER":
                     fiftyfive();     
                     break;     
                 case "RUNAWAY":
                     runaway();
+                    break;
+                case "RESULT": 
+                    res();
                     break;
                 case "LAY_YOUR_HANDS":
                     if (dreams.length > 0) {
