@@ -44,6 +44,19 @@ const takeMeBack = (message) => {
 };
 //#endregion
 
+//#region fiftyfive
+// Get user input and print it out as it was typed in
+const fiftyfive = async () => {
+    return new Promise((resolve, reject) => {
+        rl.question('Type something: ', (input) => {
+            console.log(input);
+            resolve();
+        });
+    });
+};
+//#endregion
+
+
 //#region singAlong
 // Convert character codes on the stack into a string and print it
 const singAlong = () => {
@@ -174,7 +187,10 @@ const liveWire = async () => {
                     break;
                 case "TAKE_ME_BACK":
                     takeMeBack(parts.slice(1).join(' '));
-                    break;                
+                    break;      
+                case "LOUDER":
+                    fiftyfive();     
+                    break;     
                 case "RUNAWAY":
                     runaway();
                     break;

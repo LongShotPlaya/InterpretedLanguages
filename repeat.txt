@@ -1,4 +1,1 @@
-BLAZE_OF_GLORY  # Prompt for a single character
-TAKE_ME_BACK  # Repeat the input character n times, where n is prompted
-FULL_ORDER  # Print the entire stack
-BORN_TO_BE_MY_BABY
+
