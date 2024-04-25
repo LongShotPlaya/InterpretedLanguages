@@ -216,6 +216,9 @@ const liveWire = async () => {
                         heartache("Heartbreak: Stack underflow");
                     }
                     break;
+                case "SING":
+                    console.log(parts.slice(1).join(' '));
+                    break;
                 case "NEVER_SAY_GOODBYE":
                     if (dreams.length > 0) {
                         const value = dreams.pop();
